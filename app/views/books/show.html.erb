@@ -1,10 +1,27 @@
-<%= render 'users/user', users: @user %>
-<%= link_to '編集', edit_user_path(current_user.id) %>
-<%= render 'books/book', books: @book %>
+<div class="container">
+<div class="row">
+  <div class="col-lg-3" style="background-color: orange;">
+    <%= render 'users/user', users: @user %>
+    <%= link_to '編集', edit_user_path(current_user.id) %>
+    <%= render 'books/book', books: @book %>
+  </div>
 
-<div>
-  <p>ブック名：<%= @book.title %></p>
-  <p>説明：<%= @book.body %></p>
-<p>投稿日時：<%= @book.created_at.strftime('%Y/%m/%d') %></p>
+  <div class="col-lg-8 offset-lg-1">
+    <h1>Book detail</h1>
+    <table class="table book-show">
+        <tr>
+          <td>
+            <%= attachment_image_tag @user, :profile_image, :fill, 30, 30,fallback: "no_image.jpg" %>
+            <%= link_to @user.name, user_path(@user) %></td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <td><%= link_to "Edit", edit_book_path(@book) %></td>
+          <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
+        </tr>
+    </table>
+  </div>
+
 </div>
+</div>
+
 

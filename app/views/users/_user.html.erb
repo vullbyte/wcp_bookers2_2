@@ -1,9 +1,9 @@
-<h1>User Index</h1>
+<h2>User info</h2>
 <!--%= image_tag 'no_image.jpg' %-->
 <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-<h3>ユーザー名</h3>
+<h4>name</h4>
 <%= @user.name %>
-<h3>プロフィール</h3>
+<h4>introduction</h4>
 <%= @user.introduction %>
 <%= link_to edit_user_path(current_user) do %>
 <% end %>

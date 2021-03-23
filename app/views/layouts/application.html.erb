@@ -5,11 +5,20 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/e018347584.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand p-3" href=="{{ route('root') }}">Bookers</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
       <li>
         <%= link_to "Home", user_path(current_user) %>
@@ -37,6 +46,15 @@
         <%= link_to "login", new_user_session_path %>
       </li>
     <% end %>
+      </ul>
+    </div>
+  </div>
+  </nav>
+    </header>
+  <main>
     <%= yield %>
-  </body>
+  </main>
+  <footer>
+    <p>CopyRight Infratop.inc</p>
+  </footer>
 </html>
