@@ -13,7 +13,7 @@
   <header>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand p-3" href=="{{ route('root') }}">Bookers</a>
+      <a class="navbar-brand p-3 text-light" href="/">Bookers</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,29 +21,37 @@
         <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
       <li>
-        <%= link_to "Home", user_path(current_user) %>
+        <a class="fas fa-home nav-link text-light" href="/"> Home</a>
+        <!--%= link_to "Home", user_path(current_user) %-->
       </li>
       <li>
-        <%= link_to "User", users_path %>
+        <a class="fas fa-users nav-link text-light" href="/users"> Users</a>
+        <!--%= link_to "User", users_path %-->
       </li>
       <li>
-        <%= link_to 'Books', books_path %>
+        <a class="fas fa-book-open nav-link text-light" href="/books"> Books</a>
+        <!--%= link_to 'Books', books_path %-->
       </li>
       <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        <a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> logout</a>
+        <!--%= link_to "logout", destroy_user_session_path, method: :delete %-->
       </li>
     <% else %>
       <li>
-        <%= link_to "Home", root_path %>
+        <a class="fas fa-home nav-link text-light" href="/"> Home</a>
+        <!--%= link_to "Home", user_path(current_user) %-->
       </li>
       <li>
-        <%= link_to "About", about_path %>
+        <a class="fas fa-link nav-link text-light" href="/home/about"> About</a>
+        <!--%= link_to "User", users_path %-->
       </li>
       <li>
-        <%= link_to "sign up", new_user_registration_path %>
+        <a class="fas fa-user-plus nav-link text-light" href="/users/sign_up"> sign up</a>
+        <!--%= link_to "sign up", new_user_registration_path %-->
       </li>
       <li>
-        <%= link_to "login", new_user_session_path %>
+        <a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in"> login</a>
+        <!--%= link_to "login", new_user_session_path %-->
       </li>
     <% end %>
       </ul>

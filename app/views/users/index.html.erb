@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3" style="background-color: orange;">
+    <div class="col-lg-3">
 			<%= render 'users/user', users: @user %>
 			<div>
 				<%= link_to '編集', edit_user_path(current_user.id) %>
@@ -9,17 +9,18 @@
 		</div>
 
     <div class="col-lg-8 offset-lg-1">
-			<table class="table user-index">
-				<thead>
+    	<h2>Users</h2>
+		<table class="table user-index">
+			<thead>
   				<tr>
     				<th>image</th>
     				<th>user</th>
     				<th></th>
   				</tr>
-				</thead>
-				<tbody>
+			</thead>
+			<tbody>
   				<% @users.each do |user| %>
-						<tr>
+					<tr>
   						<td>
   							<%= attachment_image_tag user, :profile_image, :fill, 50, 50,  format: 'jpeg' ,fallback: "no_image.jpg" %></td>
 				  		<td><%= user.name %></td>

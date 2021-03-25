@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true #空欄時にエラー
-  validates :introduction, length: { maximum: 200 } #200文字以内に設定
+  validates :name, presence: true, length: { minimum: 2, maximum: 20}
+  validates :introduction, length: { maximum: 50 }
 
   has_many :book, dependent: :destroy
   attachment :profile_image

@@ -1,27 +1,33 @@
 <div class="container">
-<div class="row">
-  <div class="col-lg-3" style="background-color: orange;">
-    <%= render 'users/user', users: @user %>
-    <%= link_to '編集', edit_user_path(current_user.id) %>
-    <%= render 'books/book', books: @book %>
-  </div>
+  <div class="row">
 
-  <div class="col-lg-8 offset-lg-1">
-    <h1>Book detail</h1>
-    <table class="table book-show">
+    <div class="col-lg-3">
+      <%= flash[:notice] %>
+      <%= render 'books/error', model: @book %>
+      <%= render 'users/user', users: @user %>
+      <div>
+        <%= link_to '編集', edit_user_path(current_user.id) %>
+      </div>
+      <%= render 'books/book', books: @book %>
+    </div>
+
+    <div class="col-lg-8 offset-lg-1">
+      <table class="table book-show">
+        <h2>Book detail</h2>
         <tr>
           <td>
             <%= attachment_image_tag @user, :profile_image, :fill, 30, 30,fallback: "no_image.jpg" %>
-            <%= link_to @user.name, user_path(@user) %></td>
+            <%= link_to @user.name, user_path(@user) %>
+          </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
           <td><%= link_to "Edit", edit_book_path(@book) %></td>
           <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
         </tr>
-    </table>
-  </div>
+      </table>
+    </div>
 
-</div>
+  </div>
 </div>
 
 
