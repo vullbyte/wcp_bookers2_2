@@ -26,6 +26,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
+    flash[:notice]="Welcome! You have signed up successfully."
     user_path(resource)
   end
 

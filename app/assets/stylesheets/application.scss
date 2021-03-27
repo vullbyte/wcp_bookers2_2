@@ -100,7 +100,7 @@ footer {
 .notice {
   color: green;
   }
-.error {
+.alert {
   color: red;
 }
 .error-message {
@@ -109,7 +109,17 @@ footer {
   margin-left: 60px;
 }
 
-.form-login {
+.flash {
+  color: $white;
+  text-align: center;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: $blue;
+  }
+}
+.form-login, .form-signup{
   width: 70%;
   margin: 0 auto;
   padding-top: 1em;

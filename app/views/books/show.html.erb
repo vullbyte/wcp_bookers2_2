@@ -1,17 +1,13 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-lg-3">
-      <%= flash[:notice] %>
-      <%= render 'books/error', model: @book %>
-      <%= render 'users/user', users: @user %>
-      <div>
-        <%= link_to '編集', edit_user_path(current_user.id) %>
-      </div>
-      <%= render 'books/book', books: @book %>
+    <div class="col-md-3">
+
+      <%= render 'users/user', user: @user %>
+      <%= render 'books/book', book: @book_new %>
     </div>
 
-    <div class="col-lg-8 offset-lg-1">
+    <div class="col-md-8 offset-md-1">
       <table class="table book-show">
         <h2>Book detail</h2>
         <tr>
@@ -21,8 +17,10 @@
           </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
-          <td><%= link_to "Edit", edit_book_path(@book) %></td>
-          <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
+          <% if @book.user == current_user %>
+            <td><%= link_to "Edit", edit_book_path(@book) %></td>
+            <td><%= link_to "Destroy", book_path(@book), method: :delete, data: {confirm: "本当に消しますか？"} %></td>
+          <% end %>
         </tr>
       </table>
     </div>
