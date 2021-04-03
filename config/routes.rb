@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/home/about', to: 'homes#about'
   resources :users
-  resources :books
-  # post '/user_path(current_user)', to: 'books#create'
+  resources :books do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
