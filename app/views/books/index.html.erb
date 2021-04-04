@@ -29,6 +29,9 @@
                   <%= render 'books/favorite', book: book %>
                 </div>
               </td>
+              <td>
+                <p>コメント数:<%= @comments.count %></p>
+              </td>
             </tr>
           <% end %>
         </tbody>

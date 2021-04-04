@@ -16,8 +16,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @favorite = Favorite.new
-    #@comments = @book.book_comments  #投稿詳細に関連付けてあるコメントを全取得
-    #@comment = current_user.book_comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
+    @comments = BookComment.all
 
   end
 
