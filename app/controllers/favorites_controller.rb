@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
    before_action :book_params
 
-
   def create
     @favorite = current_user.favorites.create(book_id: params[:book_id])
     redirect_to request.referer
@@ -14,7 +13,6 @@ class FavoritesController < ApplicationController
   end
 
   private
-
   def favorite_params
     params.require(:favorite).permit(:user_id, :book_id)
   end
